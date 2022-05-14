@@ -1,0 +1,85 @@
+{
+    "id": "debcd6e7-9857-4fb3-bcf2-e44c9934dd42",
+    "totals": {
+      "currency_code": "USD",
+      "total": 60000,
+      "subtotal": 49587,
+      "tax": 10413,
+      "discount": 5000
+    },
+    "tax_breakdown": [
+      {
+        "tax_rate": 0.21,
+        "total": 60000,
+        "subtotal": 49587,
+        "tax": 10413
+      }
+    ],
+    "checkout": {
+        "url": "https://buy.paddle.com/pr/debcd6e7-9857-4fb3-bcf2-e44c9934dd42",
+        "payment_methods": {
+            "card": {
+                "image_url": "doajdsa",
+                "name": "Credit Card",
+                "url": "https://buy.paddle.com/pr/debcd6e7-9857-4fb3-bcf2-e44c9934dd42/card"
+            },
+            "paypal": {
+                "image_url": "doajdsa",
+                "name": "PayPal",
+                "url": "https://buy.paddle.com/pr/debcd6e7-9857-4fb3-bcf2-e44c9934dd42/paypal"
+            },
+            "invoice": {
+                "image_url": "doajdsa",
+                "name": "Invoice",
+                "url": "https://buy.paddle.com/pr/debcd6e7-9857-4fb3-bcf2-e44c9934dd42/invoice"
+            }
+        }
+    },
+    "discount": {
+      "id": "58b00255-605d-478b-b63d-a24093a0ef46",
+      "name": "Test coupon",
+      "value": 12.0,
+      "type": "percentage",
+      "recurring": true
+    },
+    "items": [
+      {
+        "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+        "position": 1,
+        "name": "Fran Basic Product",
+        "discount": null,
+        "tax_rate": 0.21,
+        "unit_price": 20000,
+        "quantity": {
+          "current": 2,
+          "minimum": 1,
+          "maximum": 10
+        },
+        "price": {
+          "total": 40000,
+          "subtotal": 33058,
+          "tax": 6942,
+          "discount": 0
+        }
+      },
+      {
+        "product_id": "f95db322-fe73-4331-a002-f3def90d97ce",
+        "position": 2,
+        "name": "Fran Subscription Add-on",
+        "discount": null,
+        "tax_rate": 0.21,
+        "unit_price": 20000,
+        "quantity": {
+          "current": 1,
+          "minimum": 1,
+          "maximum": 1
+        },
+        "price": {
+          "total": 20000,
+          "subtotal": 16529,
+          "tax": 3471,
+          "discount": 0
+        }
+      }
+    ]
+  }
