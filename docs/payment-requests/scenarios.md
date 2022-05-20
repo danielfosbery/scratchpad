@@ -27,7 +27,7 @@ sequenceDiagram
     end
 
     opt if country/postcode set
-        PaymentRequestService->>CustomerService: POST /billing-address
+        PaymentRequestService->>CustomerService: POST /address
         CustomerService-->>PaymentRequestService: 
     end
 
@@ -74,7 +74,7 @@ sequenceDiagram
     end
 
     opt if country/postcode set
-        PaymentRequestService->>CustomerService: POST /billing-address
+        PaymentRequestService->>CustomerService: POST /address
         CustomerService-->>PaymentRequestService: 
     end
 
@@ -82,8 +82,6 @@ sequenceDiagram
         PaymentRequestService->>CustomerService: POST /business
         CustomerService-->>PaymentRequestService: 
     end
-
-    
 
     opt if country/postcode set
         PaymentRequestService->>LocalisedPricingService: GET /countries
