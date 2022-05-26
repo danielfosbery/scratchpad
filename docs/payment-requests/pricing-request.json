@@ -1,0 +1,39 @@
+{
+    "billing_address": {
+        "country_code": "US",
+        "zip_code": "1223434"
+    },
+    "tax_code": "",
+    "prices": [
+        {
+            "items": [
+                {
+                    "product_price_id": "DD0A1F1E-CE7D-4251-96E1-A123787D845F",
+                    "quantity": 1,
+                    "discount": {
+            
+                    }
+                },
+                {
+                    "product_price": {
+                        "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+                        "unit_price": 20000
+                    },
+                    "quantity": 2
+                },
+                {
+                    "product_price": {
+                        "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+                        "unit_price": -20000
+                    },
+                    "description": "Credit for unused proration thing",
+                    "quantity": 2
+                }
+            ]
+        }
+    ],
+    "discounts": []
+}
+
+// Pass in product + preconfigured price
+// Pass in product + override price

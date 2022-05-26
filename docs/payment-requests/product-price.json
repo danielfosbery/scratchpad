@@ -1,0 +1,56 @@
+{
+    "id": "fbce1a92-fcec-43f7-8c00-c74e6f72fb0a",
+    "description": "Monthly",
+    "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+    "billing|reccurance": {
+        "interval": "months",
+        "frequency": 1,
+        "trial_days": 10
+    },
+    "tier_mode": "volume|graduated", // not needed until later
+    "fx_mode": "default|pretty", // not needed until later
+    "tax_mode": "inclusive|exclusive", // tax_mode could be here
+    "price": {
+        "currency_code": "GBP",
+        "amount": 9.99,
+        "tax_mode": "inclusive|exclusive", // or tax_mode could be here
+        "tiers": [ // not needed until later
+            {
+                "amount": 8.99,
+                "minimum_quantity": 10
+            }
+        ]
+    },
+    "price_overrides": [
+        {
+            "currency_code": "USD",
+            "amount": 12.99,
+            "tax_mode": "inclusive|exclusive", // or tax_mode could be here
+            "tiers": [
+                {
+                    "amount": 10.49,
+                    "minimum_quantity": 10
+                }
+            ],
+            "country_codes": [
+                "US",
+                "BR",
+                "CA"
+            ]
+        },
+        {
+            "currency_code": "AUD",
+            "amount": 18.99,
+            "tax_mode": "inclusive|exclusive", // or tax_mode could be here
+            "tiers": [
+                {
+                    "amount": 14.49,
+                    "minimum_quantity": 10
+                }
+            ],
+            "country_codes": [
+                "AU"
+            ]
+        }
+    ]
+}

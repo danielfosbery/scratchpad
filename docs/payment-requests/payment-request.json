@@ -1,36 +1,46 @@
 {
-    "id": "debcd6e7-9857-4fb3-bcf2-e44c9934dd42",
-    "billing_address_id": "58b00255-605d-478b-b63d-a24093a0ef46", 
-    "business_id": "f95db322-fe73-4331-a002-f3def90d97cd",
-    "discount": {
-      "name": "Test coupon",
-      "value": 12.0,
-      "type": "percentage",
-      "recurring": true
+  "id": "debcd6e7-9857-4fb3-bcf2-e44c9934dd42",
+  "customer_id": "4C4F70FB-C1D6-4C56-B006-1F333FDF1ED8",
+  "billing_address_id": "58b00255-605d-478b-b63d-a24093a0ef46", 
+  "business_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+  "discount": {
+    "name": "Test coupon",
+    "value": 12.0,
+    "type": "percentage",
+    "recurring": true
+  },
+  "discount_id": "58b00255-605d-478b-b63d-a24093a0ef46",
+  "items": [
+    {
+      "product_price_id": "DD0A1F1E-CE7D-4251-96E1-A123787D845F",
+      "quantity": 1,
+      "discount": {
+        "name": "Test coupon",
+        "value": 12.0,
+        "type": "percentage",
+        "recurring": true
+      }
     },
-    "discount_id": "58b00255-605d-478b-b63d-a24093a0ef46",
-    "items": [
-      {
-        "product_price_id": "DD0A1F1E-CE7D-4251-96E1-A123787D845F",
-        "quantity": 1,
-        "discount": {
-
+    {
+      "product_price": {
+        "description": "Credit for unused proration thing",
+        "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
+        "billing|reccurance?": {
+            "interval": "months",
+            "frequency": 1,
+            "trial_days": 10
+        },
+        "tier_mode": "volume|graduated", // not needed until later
+        "fx_mode": "default|pretty", // not needed until later
+        "tax_mode": "inclusive|exclusive", // tax_mode could be here
+        "price": {
+            "currency_code": "GBP",
+            "amount": -9.99,
+            "tax_mode": "inclusive|exclusive", // or tax_mode could be here
         }
       },
-      {
-        "product_price": {
-          "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
-          "unit_price": 20000
-        },
-        "quantity": 2
-      },
-      {
-        "product_price": {
-          "product_id": "f95db322-fe73-4331-a002-f3def90d97cd",
-          "unit_price": -20000
-        },
-        "description": "Credit for unused proration thing",
-        "quantity": 2
-      }
-    ]
-  }
+      "quantity": 2,
+      "discount": null
+    }
+  ]
+}

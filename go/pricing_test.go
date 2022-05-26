@@ -9,7 +9,7 @@ import (
 
 func TestBreadownIncTax(t *testing.T) {
 	up, _ := currency.NewAmount("34.95", "EUR")
-	b, err := caclulateBreakdown(up, 1, Discount{Type: "percentage", Amount: "0.5"}, 0.2, true, false)
+	b, err := caclulateBreakdown(up, 1, &Discount{Type: "percentage", Amount: "0.5"}, 0.2, true, false)
 	if err != nil {
 		panic(err)
 	}

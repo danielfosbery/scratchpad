@@ -13,10 +13,10 @@ type Item struct {
 }
 
 type Breakdown struct {
-	Subtotal currency.Amount
-	Discount currency.Amount
-	Tax      currency.Amount
-	Total    currency.Amount
+	Subtotal int64
+	Discount int64
+	Tax      int64
+	Total    int64
 }
 
 type Discount struct {
@@ -35,10 +35,12 @@ func main() {
 	fmt.Printf("%+v\n", up.BigInt())
 }
 
-func caclulateBreakdown(unitPrice currency.Amount, quantity int, discount Discount, taxRate float32, taxInclusive, payTax bool) (Breakdown, error) {
+func caclulateBreakdown(unitPrice int64, currencyCode string, quantity int, discount *Discount, taxRate float64, taxInclusive, payTax bool) (Breakdown, error) {
 	var tax currency.Amount
 
-	subtotal, err := unitPrice.Mul(fmt.Sprintf("%d", quantity))
+	up, err := currency.NewAmount(fmt.Sprintf("%d", unitPrice), currencyCode)
+
+	subtotal, err := up.Mul(fmt.Sprintf("%d", quantity))
 	if err != nil {
 		return Breakdown{}, err
 	}
@@ -68,7 +70,7 @@ func caclulateBreakdown(unitPrice currency.Amount, quantity int, discount Discou
 
 			total = postDiscountAmount
 		} else {
-			tax, err = currency.NewAmount("0", unitPrice.CurrencyCode())
+			tax, err = currency.NewAmount("0", currencyCode)
 
 			if err != nil {
 				return Breakdown{}, err
@@ -78,10 +80,10 @@ func caclulateBreakdown(unitPrice currency.Amount, quantity int, discount Discou
 		}
 
 		return Breakdown{
-			Subtotal: subtotal.Round(),
-			Discount: discountAmount.Round(),
-			Tax:      tax.Round(),
-			Total:    total.Round(),
+			Subtotal: subtotal.Round().BigInt().Int64(),
+			Discount: discountAmount.Round().BigInt().Int64(),
+			Tax:      tax.Round().BigInt().Int64(),
+			Total:    total.Round().BigInt().Int64(),
 		}, nil
 	}
 
@@ -91,7 +93,7 @@ func caclulateBreakdown(unitPrice currency.Amount, quantity int, discount Discou
 			return Breakdown{}, err
 		}
 	} else {
-		tax, err = currency.NewAmount("0", unitPrice.CurrencyCode())
+		tax, err = currency.NewAmount("0", currencyCode)
 
 		if err != nil {
 			return Breakdown{}, err
@@ -104,14 +106,20 @@ func caclulateBreakdown(unitPrice currency.Amount, quantity int, discount Discou
 	}
 
 	return Breakdown{
-		Subtotal: subtotal.Round(),
-		Discount: discountAmount.Round(),
-		Tax:      tax.Round(),
-		Total:    total.Round(),
+		Subtotal: subtotal.Round().BigInt().Int64(),
+		Discount: discountAmount.Round().BigInt().Int64(),
+		Tax:      tax.Round().BigInt().Int64(),
+		Total:    total.Round().BigInt().Int64(),
 	}, nil
 }
 
-func applyDiscount(amount currency.Amount, discount Discount) (currency.Amount, error) {
+func applyDiscount(amount currency.Amount, discount *Discount) (currency.Amount, error) {
+	if discount == nil {
+		a, _ := currency.NewAmount("0", amount.CurrencyCode())
+
+		return a, nil
+	}
+
 	if discount.Type == "flat_amount" {
 		discountAmount, err := currency.NewAmount(discount.Amount, discount.CurrencyCode)
 		if err != nil {
